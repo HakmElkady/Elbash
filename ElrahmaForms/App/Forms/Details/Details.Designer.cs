@@ -40,22 +40,34 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtcardid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtbirthday = new System.Windows.Forms.TextBox();
+            this.txtEndDate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txthiredate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnShowEmp = new System.Windows.Forms.Button();
             this.CbxSearch = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.lblheader = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtQualification = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
+            this.picboxemp = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnNewEmp = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.dtpHiredate = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
+            this.groupBoxgender = new System.Windows.Forms.GroupBox();
+            this.rdofemal = new System.Windows.Forms.RadioButton();
+            this.RdoMale = new System.Windows.Forms.RadioButton();
+            this.groupBoxjobs = new System.Windows.Forms.GroupBox();
+            this.rdonurse = new System.Windows.Forms.RadioButton();
+            this.rdodoctors = new System.Windows.Forms.RadioButton();
+            this.rdoadmins = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxemp)).BeginInit();
+            this.groupBoxgender.SuspendLayout();
+            this.groupBoxjobs.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -98,13 +110,13 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "اسم الموظف";
+            this.label2.Text = "إسم الموظف";
             // 
             // txtaddress
             // 
             this.txtaddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtaddress.Location = new System.Drawing.Point(977, 398);
-            this.txtaddress.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtaddress.Location = new System.Drawing.Point(977, 345);
+            this.txtaddress.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(278, 24);
             this.txtaddress.TabIndex = 5;
@@ -113,7 +125,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1342, 398);
+            this.label3.Location = new System.Drawing.Point(1342, 347);
             this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 17);
@@ -123,8 +135,8 @@
             // txtphone
             // 
             this.txtphone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtphone.Location = new System.Drawing.Point(977, 448);
-            this.txtphone.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtphone.Location = new System.Drawing.Point(977, 396);
+            this.txtphone.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(278, 24);
             this.txtphone.TabIndex = 7;
@@ -133,7 +145,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1314, 448);
+            this.label4.Location = new System.Drawing.Point(1314, 397);
             this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
@@ -143,7 +155,7 @@
             // txthour
             // 
             this.txthour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txthour.Location = new System.Drawing.Point(977, 500);
+            this.txthour.Location = new System.Drawing.Point(977, 444);
             this.txthour.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.txthour.Name = "txthour";
             this.txthour.Size = new System.Drawing.Size(278, 24);
@@ -153,7 +165,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1310, 500);
+            this.label5.Location = new System.Drawing.Point(1310, 444);
             this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 17);
@@ -163,7 +175,7 @@
             // txtcardid
             // 
             this.txtcardid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcardid.Location = new System.Drawing.Point(977, 553);
+            this.txtcardid.Location = new System.Drawing.Point(977, 497);
             this.txtcardid.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.txtcardid.Name = "txtcardid";
             this.txtcardid.Size = new System.Drawing.Size(278, 24);
@@ -173,63 +185,53 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1314, 553);
+            this.label6.Location = new System.Drawing.Point(1314, 497);
             this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "رقم البطاقة";
             // 
-            // txtbirthday
+            // txtEndDate
             // 
-            this.txtbirthday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbirthday.Location = new System.Drawing.Point(977, 607);
-            this.txtbirthday.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.txtbirthday.Name = "txtbirthday";
-            this.txtbirthday.Size = new System.Drawing.Size(278, 24);
-            this.txtbirthday.TabIndex = 13;
+            this.txtEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndDate.Location = new System.Drawing.Point(977, 597);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.Size = new System.Drawing.Size(278, 24);
+            this.txtEndDate.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1314, 607);
+            this.label7.Location = new System.Drawing.Point(823, 351);
             this.label7.Margin = new System.Windows.Forms.Padding(10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "تاريخ الميلاد";
             // 
-            // txthiredate
-            // 
-            this.txthiredate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txthiredate.Location = new System.Drawing.Point(977, 660);
-            this.txthiredate.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.txthiredate.Name = "txthiredate";
-            this.txthiredate.Size = new System.Drawing.Size(278, 24);
-            this.txthiredate.TabIndex = 15;
-            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1312, 660);
-            this.label8.Margin = new System.Windows.Forms.Padding(10);
+            this.label8.Location = new System.Drawing.Point(821, 291);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "تاريخ التعيين";
             // 
-            // button1
+            // BtnShowEmp
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(762, 132);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "عرض";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnShowEmp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnShowEmp.Location = new System.Drawing.Point(762, 132);
+            this.BtnShowEmp.Name = "BtnShowEmp";
+            this.BtnShowEmp.Size = new System.Drawing.Size(90, 30);
+            this.BtnShowEmp.TabIndex = 3;
+            this.BtnShowEmp.Text = "عرض";
+            this.BtnShowEmp.UseVisualStyleBackColor = true;
+            this.BtnShowEmp.Click += new System.EventHandler(this.BtnShowEmp_Click);
             // 
             // CbxSearch
             // 
@@ -250,36 +252,6 @@
             this.label10.TabIndex = 1;
             this.label10.Text = "أختر أسم الموظف";
             // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.Location = new System.Drawing.Point(1382, 111);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 73);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "بحث";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1292, 787);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 32);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1113, 787);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 32);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // lblheader
             // 
             this.lblheader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -291,40 +263,30 @@
             this.lblheader.TabIndex = 19;
             this.lblheader.Text = "بيانات الموظفين";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(977, 714);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 24);
-            this.textBox1.TabIndex = 21;
-            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1312, 714);
-            this.label11.Margin = new System.Windows.Forms.Padding(10);
+            this.label11.Location = new System.Drawing.Point(1309, 600);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(82, 17);
             this.label11.TabIndex = 20;
             this.label11.Text = "تاريخ التصفية";
             // 
-            // textBox2
+            // txtQualification
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(977, 344);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 24);
-            this.textBox2.TabIndex = 23;
+            this.txtQualification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQualification.Location = new System.Drawing.Point(977, 547);
+            this.txtQualification.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtQualification.Name = "txtQualification";
+            this.txtQualification.Size = new System.Drawing.Size(278, 24);
+            this.txtQualification.TabIndex = 23;
             // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1287, 347);
+            this.label12.Location = new System.Drawing.Point(1287, 550);
             this.label12.Margin = new System.Windows.Forms.Padding(10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(104, 17);
@@ -333,45 +295,213 @@
             // 
             // checkBoxActive
             // 
+            this.checkBoxActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxActive.AutoSize = true;
-            this.checkBoxActive.Location = new System.Drawing.Point(1005, 241);
+            this.checkBoxActive.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxActive.Checked = true;
+            this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxActive.Location = new System.Drawing.Point(1178, 207);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(77, 21);
             this.checkBoxActive.TabIndex = 24;
             this.checkBoxActive.Text = "IsActive";
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
+            // picboxemp
+            // 
+            this.picboxemp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picboxemp.Image = global::ElrahmaForms.Properties.Resources.emp;
+            this.picboxemp.Location = new System.Drawing.Point(100, 241);
+            this.picboxemp.Name = "picboxemp";
+            this.picboxemp.Size = new System.Drawing.Size(237, 201);
+            this.picboxemp.TabIndex = 25;
+            this.picboxemp.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(100, 444);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(237, 31);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "أختر صورة الموظف";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btnNewEmp
+            // 
+            this.btnNewEmp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewEmp.Location = new System.Drawing.Point(1236, 711);
+            this.btnNewEmp.Name = "btnNewEmp";
+            this.btnNewEmp.Size = new System.Drawing.Size(152, 47);
+            this.btnNewEmp.TabIndex = 27;
+            this.btnNewEmp.Text = "موظف جديد  ";
+            this.btnNewEmp.UseVisualStyleBackColor = true;
+            this.btnNewEmp.Click += new System.EventHandler(this.btnNewEmp_Click);
+            // 
+            // BtnEdit
+            // 
+            this.BtnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnEdit.Location = new System.Drawing.Point(930, 711);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(152, 47);
+            this.BtnEdit.TabIndex = 28;
+            this.BtnEdit.Text = "تعديل الموظف";
+            this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.Location = new System.Drawing.Point(810, 649);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(87, 40);
+            this.BtnSave.TabIndex = 29;
+            this.BtnSave.Text = "حفظ";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // dtpHiredate
+            // 
+            this.dtpHiredate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpHiredate.Location = new System.Drawing.Point(528, 285);
+            this.dtpHiredate.Name = "dtpHiredate";
+            this.dtpHiredate.RightToLeftLayout = true;
+            this.dtpHiredate.ShowUpDown = true;
+            this.dtpHiredate.Size = new System.Drawing.Size(236, 24);
+            this.dtpHiredate.TabIndex = 30;
+            // 
+            // dtpBirthday
+            // 
+            this.dtpBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpBirthday.Location = new System.Drawing.Point(528, 345);
+            this.dtpBirthday.Name = "dtpBirthday";
+            this.dtpBirthday.RightToLeftLayout = true;
+            this.dtpBirthday.ShowUpDown = true;
+            this.dtpBirthday.Size = new System.Drawing.Size(236, 24);
+            this.dtpBirthday.TabIndex = 31;
+            this.dtpBirthday.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
+            // groupBoxgender
+            // 
+            this.groupBoxgender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxgender.BackColor = System.Drawing.Color.White;
+            this.groupBoxgender.Controls.Add(this.rdofemal);
+            this.groupBoxgender.Controls.Add(this.RdoMale);
+            this.groupBoxgender.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBoxgender.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBoxgender.Location = new System.Drawing.Point(564, 497);
+            this.groupBoxgender.Name = "groupBoxgender";
+            this.groupBoxgender.Size = new System.Drawing.Size(200, 60);
+            this.groupBoxgender.TabIndex = 32;
+            this.groupBoxgender.TabStop = false;
+            this.groupBoxgender.Text = "النوع";
+            // 
+            // rdofemal
+            // 
+            this.rdofemal.AutoSize = true;
+            this.rdofemal.Location = new System.Drawing.Point(20, 27);
+            this.rdofemal.Name = "rdofemal";
+            this.rdofemal.Size = new System.Drawing.Size(55, 21);
+            this.rdofemal.TabIndex = 33;
+            this.rdofemal.TabStop = true;
+            this.rdofemal.Text = "أنثي";
+            this.rdofemal.UseVisualStyleBackColor = true;
+            // 
+            // RdoMale
+            // 
+            this.RdoMale.AutoSize = true;
+            this.RdoMale.Location = new System.Drawing.Point(127, 27);
+            this.RdoMale.Name = "RdoMale";
+            this.RdoMale.Size = new System.Drawing.Size(49, 21);
+            this.RdoMale.TabIndex = 34;
+            this.RdoMale.TabStop = true;
+            this.RdoMale.Text = "ذكر";
+            this.RdoMale.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxjobs
+            // 
+            this.groupBoxjobs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxjobs.BackColor = System.Drawing.Color.White;
+            this.groupBoxjobs.Controls.Add(this.rdoadmins);
+            this.groupBoxjobs.Controls.Add(this.rdonurse);
+            this.groupBoxjobs.Controls.Add(this.rdodoctors);
+            this.groupBoxjobs.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBoxjobs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBoxjobs.Location = new System.Drawing.Point(528, 397);
+            this.groupBoxjobs.Name = "groupBoxjobs";
+            this.groupBoxjobs.Size = new System.Drawing.Size(236, 67);
+            this.groupBoxjobs.TabIndex = 33;
+            this.groupBoxjobs.TabStop = false;
+            this.groupBoxjobs.Text = "الوظيفة";
+            // 
+            // rdonurse
+            // 
+            this.rdonurse.AutoSize = true;
+            this.rdonurse.Location = new System.Drawing.Point(88, 27);
+            this.rdonurse.Name = "rdonurse";
+            this.rdonurse.Size = new System.Drawing.Size(68, 21);
+            this.rdonurse.TabIndex = 33;
+            this.rdonurse.TabStop = true;
+            this.rdonurse.Text = "تمريض";
+            this.rdonurse.UseVisualStyleBackColor = true;
+            // 
+            // rdodoctors
+            // 
+            this.rdodoctors.AutoSize = true;
+            this.rdodoctors.Location = new System.Drawing.Point(171, 27);
+            this.rdodoctors.Name = "rdodoctors";
+            this.rdodoctors.Size = new System.Drawing.Size(59, 21);
+            this.rdodoctors.TabIndex = 34;
+            this.rdodoctors.TabStop = true;
+            this.rdodoctors.Text = "دكتور";
+            this.rdodoctors.UseVisualStyleBackColor = true;
+            // 
+            // rdoadmins
+            // 
+            this.rdoadmins.AutoSize = true;
+            this.rdoadmins.Location = new System.Drawing.Point(14, 27);
+            this.rdoadmins.Name = "rdoadmins";
+            this.rdoadmins.Size = new System.Drawing.Size(64, 21);
+            this.rdoadmins.TabIndex = 35;
+            this.rdoadmins.TabStop = true;
+            this.rdoadmins.Text = "موظف";
+            this.rdoadmins.UseVisualStyleBackColor = true;
+            // 
             // Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1553, 905);
+            this.Controls.Add(this.groupBoxjobs);
+            this.Controls.Add(this.groupBoxgender);
+            this.Controls.Add(this.dtpBirthday);
+            this.Controls.Add(this.dtpHiredate);
+            this.Controls.Add(this.BtnSave);
+            this.Controls.Add(this.BtnEdit);
+            this.Controls.Add(this.btnNewEmp);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.picboxemp);
             this.Controls.Add(this.checkBoxActive);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtQualification);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblheader);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnShowEmp);
             this.Controls.Add(this.CbxSearch);
             this.Controls.Add(this.txthour);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtnum);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtcardid);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.txtphone);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtname);
-            this.Controls.Add(this.txtbirthday);
-            this.Controls.Add(this.txthiredate);
+            this.Controls.Add(this.txtEndDate);
             this.Controls.Add(this.txtaddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
@@ -379,6 +509,11 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "Details";
             this.Load += new System.EventHandler(this.Details_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picboxemp)).EndInit();
+            this.groupBoxgender.ResumeLayout(false);
+            this.groupBoxgender.PerformLayout();
+            this.groupBoxjobs.ResumeLayout(false);
+            this.groupBoxjobs.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,21 +533,30 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtcardid;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtbirthday;
+        private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txthiredate;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnShowEmp;
         private System.Windows.Forms.ComboBox CbxSearch;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblheader;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtQualification;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBoxActive;
+        private System.Windows.Forms.PictureBox picboxemp;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnNewEmp;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.DateTimePicker dtpHiredate;
+        private System.Windows.Forms.DateTimePicker dtpBirthday;
+        private System.Windows.Forms.GroupBox groupBoxgender;
+        private System.Windows.Forms.RadioButton rdofemal;
+        private System.Windows.Forms.RadioButton RdoMale;
+        private System.Windows.Forms.GroupBox groupBoxjobs;
+        private System.Windows.Forms.RadioButton rdoadmins;
+        private System.Windows.Forms.RadioButton rdonurse;
+        private System.Windows.Forms.RadioButton rdodoctors;
     }
 }

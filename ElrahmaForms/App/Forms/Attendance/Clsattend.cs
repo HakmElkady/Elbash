@@ -18,7 +18,7 @@ namespace ElrahmaForms.App.Forms
 
         public void Get()
         {                                                                                                                                                       ///
-            string SqlCommand = "select EmpName,checkin,checkout,ID,e.empid from checkinout c inner join employees e\r\non e.empid=c.empid\r\nwhere checkout is null  ";
+            string SqlCommand = "select EmpName,checkin,checkout,ID,e.empid from checkinout c inner join employees e\r\non e.empid=c.empid\r\nwhere checkout is null and IsActive = 'true' ";
             Dt_Get = new DataTable();
             XclsDb.Select(SqlCommand, null, Dt_Get);
 

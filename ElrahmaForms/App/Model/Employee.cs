@@ -38,8 +38,10 @@ namespace ElrahmaForms.App.Model
 
         public string Qualification { get; set; }
 
+        public string EmpImage { get; set; }
 
-        // public string Image { get; set; }
+        public string Department { get; set; }
+
 
     }
 }
