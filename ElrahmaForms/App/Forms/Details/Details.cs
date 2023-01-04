@@ -61,6 +61,19 @@ namespace ElrahmaForms.App.Forms
 
         private void btnNewEmp_Click(object sender, EventArgs e)
         {
+            int a = 0;
+
+            if (xclsemp.XclsDb.Check() == true)
+            {
+                DataTable dt = new DataTable();
+                xclsemp.XclsDb.Select("SELECT  MAX(EmpID)\r\nFROM employees ", null, dt);
+
+                DataRow LastEmpId = dt.Rows[0];
+
+                a = (int)LastEmpId.ItemArray[0];
+            }
+
+
 
             foreach (Control control in this.Controls)
             {
@@ -79,6 +92,11 @@ namespace ElrahmaForms.App.Forms
             CbxSearch.Enabled = false;
             txtEndDate.Enabled = false;
             dtpHiredate.Value = DateTime.Now;
+            txtnum.Text = a.ToString();
+
+
+         
+          
 
 
 
@@ -86,6 +104,7 @@ namespace ElrahmaForms.App.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+           
             CheckData();
             string Dept = Department();
 
@@ -99,14 +118,14 @@ namespace ElrahmaForms.App.Forms
             #region عمليات الادخال في قاعدة البيانات
 
 
-            ///////////////////////    Command 1
+            ///////////////////////    Command 1  To Store New Emp In DataBase
             string SqlCommand1 = "insert into Employees" +
                 "(IsActive,EmpName,Address,Phone,BirthDay," +
-                "HourPrice,CardID,Qualification,Hiring_Date,Gender)" +
+                "HourPrice,CardID,Qualification,Hiring_Date,Gender,EmpImage)" +
                 "values" +
                 "(@IsActive,@EmpName,@Address,@Phone,@BirthDay," +
-                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender)";
-            SqlParameter[] par = new SqlParameter[10];
+                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender,@EmpImage)";
+            SqlParameter[] par = new SqlParameter[11];
 
             par[0] = new SqlParameter("IsActive", MySqlDbType.Bit) { Value = checkBoxActive.Checked };
             par[1] = new SqlParameter("EmpName", MySqlDbType.VarChar) { Value = txtname.Text.ToString() };
@@ -118,26 +137,25 @@ namespace ElrahmaForms.App.Forms
             par[7] = new SqlParameter("Qualification", MySqlDbType.VarChar) { Value = txtQualification.Text.ToString() };
             par[8] = new SqlParameter("Hiring_Date", MySqlDbType.Date) { Value = dtpHiredate.Value.ToString("yyyy-MM-dd") };
             par[9] = new SqlParameter("Gender", MySqlDbType.VarChar) { Value = Gender() };
+            par[10] = new SqlParameter("EmpImage", MySqlDbType.Byte) { Value = pic };
+            
 
 
-            /////////////////////////////////Command 2
+            /////////////////////////////////Command 2 To Store Employee Department
             ///
-            DataTable dt = new DataTable();
-            xclsemp.XclsDb.Select("select * from employees", null, dt);
-            int a= dt.Rows.Count + 2;
+
 
 
             string SqlCommand2 = "insert into Departments (DeptName,Empid) " +
                   "values" +
-                  $"('{Dept}',{a})";
+                  $"('{Dept}',{int.Parse(txtnum.Text)})";
 
 
 
 
 
-            #endregion
 
-
+            ///////////////////  Excute The Two Command Of New Employee
 
             try
             {
@@ -145,10 +163,8 @@ namespace ElrahmaForms.App.Forms
                 {
 
                     xclsemp.XclsDb.Excute(SqlCommand1, par);
-                  //  xclsemp.XclsDb.Select(SqlCommand1, par);
 
-
-                     xclsemp.XclsDb.Excute(SqlCommand2, null);
+                    xclsemp.XclsDb.Excute(SqlCommand2, null);
 
 
 
@@ -159,7 +175,8 @@ namespace ElrahmaForms.App.Forms
                 MessageBox.Show(ex.Message.ToString());
                 
             }
-        
+            #endregion
+
 
 
 
@@ -254,6 +271,8 @@ namespace ElrahmaForms.App.Forms
 
 
         }
+
+  
 
 
 
