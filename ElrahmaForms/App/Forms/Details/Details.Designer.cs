@@ -52,7 +52,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.picboxemp = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnNewEmp = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -62,9 +61,12 @@
             this.rdofemal = new System.Windows.Forms.RadioButton();
             this.RdoMale = new System.Windows.Forms.RadioButton();
             this.groupBoxjobs = new System.Windows.Forms.GroupBox();
+            this.rdoadmins = new System.Windows.Forms.RadioButton();
             this.rdonurse = new System.Windows.Forms.RadioButton();
             this.rdodoctors = new System.Windows.Forms.RadioButton();
-            this.rdoadmins = new System.Windows.Forms.RadioButton();
+            this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.BtnImgSelect = new System.Windows.Forms.Button();
+            this.btncancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picboxemp)).BeginInit();
             this.groupBoxgender.SuspendLayout();
             this.groupBoxjobs.SuspendLayout();
@@ -314,18 +316,9 @@
             this.picboxemp.Location = new System.Drawing.Point(100, 241);
             this.picboxemp.Name = "picboxemp";
             this.picboxemp.Size = new System.Drawing.Size(237, 201);
+            this.picboxemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxemp.TabIndex = 25;
             this.picboxemp.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(100, 444);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(237, 31);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "أختر صورة الموظف";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // btnNewEmp
             // 
@@ -433,6 +426,17 @@
             this.groupBoxjobs.TabStop = false;
             this.groupBoxjobs.Text = "الوظيفة";
             // 
+            // rdoadmins
+            // 
+            this.rdoadmins.AutoSize = true;
+            this.rdoadmins.Location = new System.Drawing.Point(14, 27);
+            this.rdoadmins.Name = "rdoadmins";
+            this.rdoadmins.Size = new System.Drawing.Size(64, 21);
+            this.rdoadmins.TabIndex = 35;
+            this.rdoadmins.TabStop = true;
+            this.rdoadmins.Text = "موظف";
+            this.rdoadmins.UseVisualStyleBackColor = true;
+            // 
             // rdonurse
             // 
             this.rdonurse.AutoSize = true;
@@ -455,16 +459,29 @@
             this.rdodoctors.Text = "دكتور";
             this.rdodoctors.UseVisualStyleBackColor = true;
             // 
-            // rdoadmins
+            // ofd
             // 
-            this.rdoadmins.AutoSize = true;
-            this.rdoadmins.Location = new System.Drawing.Point(14, 27);
-            this.rdoadmins.Name = "rdoadmins";
-            this.rdoadmins.Size = new System.Drawing.Size(64, 21);
-            this.rdoadmins.TabIndex = 35;
-            this.rdoadmins.TabStop = true;
-            this.rdoadmins.Text = "موظف";
-            this.rdoadmins.UseVisualStyleBackColor = true;
+            this.ofd.FileName = "openFileDialog";
+            // 
+            // BtnImgSelect
+            // 
+            this.BtnImgSelect.Location = new System.Drawing.Point(100, 449);
+            this.BtnImgSelect.Name = "BtnImgSelect";
+            this.BtnImgSelect.Size = new System.Drawing.Size(237, 34);
+            this.BtnImgSelect.TabIndex = 34;
+            this.BtnImgSelect.Text = "إختر صورة الموظف";
+            this.BtnImgSelect.UseVisualStyleBackColor = true;
+            this.BtnImgSelect.Click += new System.EventHandler(this.BtnImgSelect_Click);
+            // 
+            // btncancel
+            // 
+            this.btncancel.Location = new System.Drawing.Point(699, 649);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(87, 40);
+            this.btncancel.TabIndex = 35;
+            this.btncancel.Text = "إلغاء";
+            this.btncancel.UseVisualStyleBackColor = true;
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // Details
             // 
@@ -473,6 +490,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1553, 905);
+            this.Controls.Add(this.btncancel);
+            this.Controls.Add(this.BtnImgSelect);
             this.Controls.Add(this.groupBoxjobs);
             this.Controls.Add(this.groupBoxgender);
             this.Controls.Add(this.dtpBirthday);
@@ -480,7 +499,6 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.btnNewEmp);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.picboxemp);
             this.Controls.Add(this.checkBoxActive);
             this.Controls.Add(this.txtQualification);
@@ -545,7 +563,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBoxActive;
         private System.Windows.Forms.PictureBox picboxemp;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnNewEmp;
         private System.Windows.Forms.Button BtnEdit;
         private System.Windows.Forms.Button BtnSave;
@@ -558,5 +575,8 @@
         private System.Windows.Forms.RadioButton rdoadmins;
         private System.Windows.Forms.RadioButton rdonurse;
         private System.Windows.Forms.RadioButton rdodoctors;
+        private System.Windows.Forms.OpenFileDialog ofd;
+        private System.Windows.Forms.Button BtnImgSelect;
+        private System.Windows.Forms.Button btncancel;
     }
 }

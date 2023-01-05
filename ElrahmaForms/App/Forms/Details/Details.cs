@@ -26,6 +26,7 @@ namespace ElrahmaForms.App.Forms
             InitializeComponent();
             LoadTheme();
             BtnSave.Visible = false;
+            btncancel.Visible = false;
 
         }
 
@@ -45,6 +46,7 @@ namespace ElrahmaForms.App.Forms
         }
         private void Details_Load(object sender, EventArgs e)
         {
+            LoadTheme();
             groupBoxgender.ForeColor = ThemeColor.SecondaryColor;
             groupBoxjobs.ForeColor = ThemeColor.SecondaryColor;
 
@@ -61,19 +63,7 @@ namespace ElrahmaForms.App.Forms
 
         private void btnNewEmp_Click(object sender, EventArgs e)
         {
-            int a = 0;
-
-            if (xclsemp.XclsDb.Check() == true)
-            {
-                DataTable dt = new DataTable();
-                xclsemp.XclsDb.Select("SELECT  MAX(EmpID)\r\nFROM employees ", null, dt);
-
-                DataRow LastEmpId = dt.Rows[0];
-
-                a = (int)LastEmpId.ItemArray[0];
-            }
-
-
+            
 
             foreach (Control control in this.Controls)
             {
@@ -87,12 +77,18 @@ namespace ElrahmaForms.App.Forms
 
             btnNewEmp.Visible = false;
             BtnEdit.Visible = false;
-            BtnSave.Visible = true;
             BtnShowEmp.Enabled = false;
             CbxSearch.Enabled = false;
             txtEndDate.Enabled = false;
+            BtnSave.Visible = true;
+            btncancel.Visible = true;
             dtpHiredate.Value = DateTime.Now;
-            txtnum.Text = a.ToString();
+            rdoadmins.Checked = false;
+            rdodoctors.Checked = false;
+            rdonurse.Checked = false;
+            rdofemal.Checked = false;
+            RdoMale.Checked = false;
+           
 
 
          
@@ -104,14 +100,15 @@ namespace ElrahmaForms.App.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-           
-            CheckData();
-            string Dept = Department();
 
+            if (!CheckData())
+                return;
 
-            MemoryStream stream = new MemoryStream();
-            picboxemp.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-            byte[] pic = stream.ToArray();
+            int Dept = Department();
+            string Type = Gender();
+            byte[] pic = Imge();
+
+          
 
 
 
@@ -121,11 +118,11 @@ namespace ElrahmaForms.App.Forms
             ///////////////////////    Command 1  To Store New Emp In DataBase
             string SqlCommand1 = "insert into Employees" +
                 "(IsActive,EmpName,Address,Phone,BirthDay," +
-                "HourPrice,CardID,Qualification,Hiring_Date,Gender,EmpImage)" +
+                "HourPrice,CardID,Qualification,Hiring_Date,Gender,EmpImage,DeptNo)" +
                 "values" +
                 "(@IsActive,@EmpName,@Address,@Phone,@BirthDay," +
-                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender,@EmpImage)";
-            SqlParameter[] par = new SqlParameter[11];
+                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender,@EmpImage,@DeptNo)";
+            SqlParameter[] par = new SqlParameter[12];
 
             par[0] = new SqlParameter("IsActive", MySqlDbType.Bit) { Value = checkBoxActive.Checked };
             par[1] = new SqlParameter("EmpName", MySqlDbType.VarChar) { Value = txtname.Text.ToString() };
@@ -136,19 +133,9 @@ namespace ElrahmaForms.App.Forms
             par[6] = new SqlParameter("CardID", MySqlDbType.VarChar) { Value = txtcardid.Text.ToString() };
             par[7] = new SqlParameter("Qualification", MySqlDbType.VarChar) { Value = txtQualification.Text.ToString() };
             par[8] = new SqlParameter("Hiring_Date", MySqlDbType.Date) { Value = dtpHiredate.Value.ToString("yyyy-MM-dd") };
-            par[9] = new SqlParameter("Gender", MySqlDbType.VarChar) { Value = Gender() };
+            par[9] = new SqlParameter("Gender", MySqlDbType.VarChar) { Value = Type };
             par[10] = new SqlParameter("EmpImage", MySqlDbType.Byte) { Value = pic };
-            
-
-
-            /////////////////////////////////Command 2 To Store Employee Department
-            ///
-
-
-
-            string SqlCommand2 = "insert into Departments (DeptName,Empid) " +
-                  "values" +
-                  $"('{Dept}',{int.Parse(txtnum.Text)})";
+            par[11] = new SqlParameter("DeptNo", MySqlDbType.Int32) { Value = Dept };
 
 
 
@@ -163,10 +150,6 @@ namespace ElrahmaForms.App.Forms
                 {
 
                     xclsemp.XclsDb.Excute(SqlCommand1, par);
-
-                    xclsemp.XclsDb.Excute(SqlCommand2, null);
-
-
 
                 }
             }
@@ -203,7 +186,39 @@ namespace ElrahmaForms.App.Forms
             dtpBirthday.Value = Convert.ToDateTime(xdv[0]["BirthDay"]);
             dtpHiredate.Value = Convert.ToDateTime(xdv[0]["Hiring_Date"]);
             txtEndDate.Text = xdv[0]["End_Date"].ToString();
+            txtQualification.Text= xdv[0]["Qualification"].ToString();
+
+            ///////////  image
+          
+            byte[] img =  xdv[0][16] as byte[];
+            MemoryStream ms = new MemoryStream(img);
+            picboxemp.Image = Image.FromStream(ms);
+            
+            ///////// Gender Rdo
+            if (xdv[0]["Gender"].ToString().Trim()== "ذكر")
+                RdoMale.Checked= true;
+            else
+                rdofemal.Checked= true;
+            /////////Dept Rdo
+            if (xdv[0]["DeptName"].ToString().Trim() == "الأطباء")
+                rdodoctors.Checked = true;
+            else if (xdv[0]["DeptName"].ToString().Trim() == "التمريض")
+                rdonurse.Checked = true;
+            else if (xdv[0]["DeptName"].ToString().Trim() == "الموظفين")
+                rdoadmins.Checked = true;
+            else
+            { 
+                MessageBox.Show("Note=> \n هذا الموظف غير مدرج في أي قسم" + "\n"+ "\tبرجاء التعديل");
+                //rdoadmins.Checked = false;
+                //rdodoctors.Checked = false;
+                //rdonurse.Checked = false;
+            }
+
+
+
+
         }
+
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
@@ -212,16 +227,30 @@ namespace ElrahmaForms.App.Forms
 
 
 
-        string Department()
+        private void BtnImgSelect_Click(object sender, EventArgs e)
+        {
+            ofd.Title = "إختر صورة الموظف";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+           
+            if(ofd.ShowDialog() == DialogResult.OK)
+            picboxemp.Image = Image.FromFile(ofd.FileName);
+        }
+
+
+
+        int Department()
         {
             if (rdodoctors.Checked)
-                return "الأطباء";
+                return 1;
 
             else if (rdonurse.Checked)
-                return "التمريض";
+                return 2;
 
+            else if (rdoadmins.Checked)
+                return 3;
             else
-                return "الموظفين";
+                return 4;
+
 
         }
         string Gender()
@@ -232,52 +261,111 @@ namespace ElrahmaForms.App.Forms
             else
                 return "أنثي";
         }
-        void CheckData()
+        bool CheckData()
         {
+
+            decimal number;
+
+
             if (txtname.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال الأسم بشكل صحيح");
-            if (txtaddress.Text == string.Empty)
+                txtname.Focus();
+                return false;
+            }
+            else if (txtaddress.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال العنوان بشكل صحيح");
-            if (txtphone.Text == string.Empty)       
+                txtaddress.Focus();
+                return false;
+            }
+            else if (txtphone.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال رقم التليفون بشكل صحيح");
-            if (txthour.Text == string.Empty)       
+                txtphone.Focus();
+                return false;
+
+            }
+            else if (txthour.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال سعر الساعة بشكل صحيح");
-            if (txtcardid.Text == string.Empty)      
+                txthour.Focus();
+                return false;
+            }
+            else if (txtcardid.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال رقم البطاقة بشكل صحيح");
-            if (txtQualification.Text == string.Empty)       
+                txtcardid.Focus();
+                return false;
+
+            }
+            else if (txtQualification.Text == string.Empty)
+            {
                 MessageBox.Show("يرجي إدخال المؤهل الدراسي بشكل صحيح");
-            if (dtpBirthday.Value.ToString() == "1/1/2000 12:00:00 AM")
+                txtQualification.Focus();
+                return false;
+
+            }
+            else if (dtpBirthday.Value.ToString() == "1/1/2000 12:00:00 AM")
+            {
                 MessageBox.Show("يرجي اختيار تاريخ الميلاد");
-
-            try
-            {
-                decimal.Parse(txthour.Text);
+                return false;
             }
-            catch (Exception ex)
+            else if (rdoadmins.Checked == false && rdodoctors.Checked == false && rdonurse.Checked == false)
             {
-
-                MessageBox.Show("سعر الساعة يجب أن يكون رقم");
-                MessageBox.Show(ex.Message);
-                return;
-            }
-
-
-            if (rdoadmins.Checked == false && rdodoctors.Checked == false && rdonurse.Checked == false)
                 MessageBox.Show("يرجي أختيار الوظيفة");
-            if(RdoMale.Checked == false && rdofemal.Checked ==false)
+                return false;
+            }
+            else if (RdoMale.Checked == false && rdofemal.Checked == false)
+            {
                 MessageBox.Show("يرجي أختيار النوع");
+                return false;
+            }
+            else if (!Decimal.TryParse(txthour.Text, out number))
+            {
+                MessageBox.Show("سعر الساعة يجب أن يكون رقم");
+                return false;
+            }
+            else
+                return true;
+                
 
-            
+
+
 
 
         }
 
-  
+        byte[] Imge()
+        {
+            try
+            {
+                MemoryStream stream = new MemoryStream();
+                picboxemp.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] data = stream.ToArray();
+                return data;
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("يرجي اختيار الصورة");
+                byte[] data2 = null;
+                return data2;
+            }
+           
+        }
 
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+           
+            btnNewEmp.Visible = true;
+            BtnEdit.Visible = true;
+            BtnSave.Visible = false;
+            btncancel.Visible = false;
+            BtnShowEmp.Enabled = true;
+            CbxSearch.Enabled = true;
+            txtEndDate.Enabled = true;
 
-
-
-
+        }
     }
 }

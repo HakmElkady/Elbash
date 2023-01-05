@@ -18,7 +18,7 @@ namespace ElrahmaForms.App.Forms
 
         public void Get()
         {
-            string SqlCommand = "select * from Employees";
+            string SqlCommand = "SELECT  * FROM employees e full outer join Departments d on e.deptno = d.deptno";
             Dt_Get = new DataTable();
             XclsDb.Select(SqlCommand,null,Dt_Get);
          
