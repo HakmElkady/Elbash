@@ -77,7 +77,6 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1350, 248);
-            this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 17);
             this.label1.TabIndex = 0;
@@ -87,7 +86,7 @@
             // 
             this.txtnum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtnum.Location = new System.Drawing.Point(1135, 241);
-            this.txtnum.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtnum.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtnum.Name = "txtnum";
             this.txtnum.ReadOnly = true;
             this.txtnum.Size = new System.Drawing.Size(120, 24);
@@ -98,7 +97,7 @@
             // 
             this.txtname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtname.Location = new System.Drawing.Point(977, 292);
-            this.txtname.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtname.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(278, 24);
             this.txtname.TabIndex = 3;
@@ -108,7 +107,6 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1308, 292);
-            this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 2;
@@ -128,7 +126,6 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1342, 347);
-            this.label3.Margin = new System.Windows.Forms.Padding(10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 17);
             this.label3.TabIndex = 4;
@@ -148,7 +145,6 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1314, 397);
-            this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 6;
@@ -158,7 +154,7 @@
             // 
             this.txthour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txthour.Location = new System.Drawing.Point(977, 444);
-            this.txthour.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txthour.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txthour.Name = "txthour";
             this.txthour.Size = new System.Drawing.Size(278, 24);
             this.txthour.TabIndex = 9;
@@ -168,7 +164,6 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1310, 444);
-            this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 17);
             this.label5.TabIndex = 8;
@@ -178,7 +173,7 @@
             // 
             this.txtcardid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtcardid.Location = new System.Drawing.Point(977, 497);
-            this.txtcardid.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtcardid.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtcardid.Name = "txtcardid";
             this.txtcardid.Size = new System.Drawing.Size(278, 24);
             this.txtcardid.TabIndex = 11;
@@ -188,7 +183,6 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(1314, 497);
-            this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 17);
             this.label6.TabIndex = 10;
@@ -198,7 +192,7 @@
             // 
             this.txtEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEndDate.Location = new System.Drawing.Point(977, 597);
-            this.txtEndDate.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(278, 24);
             this.txtEndDate.TabIndex = 13;
@@ -279,7 +273,7 @@
             // 
             this.txtQualification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQualification.Location = new System.Drawing.Point(977, 547);
-            this.txtQualification.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
+            this.txtQualification.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.txtQualification.Name = "txtQualification";
             this.txtQualification.Size = new System.Drawing.Size(278, 24);
             this.txtQualification.TabIndex = 23;
@@ -289,7 +283,6 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(1287, 550);
-            this.label12.Margin = new System.Windows.Forms.Padding(10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(104, 17);
             this.label12.TabIndex = 22;
@@ -313,9 +306,9 @@
             // 
             this.picboxemp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picboxemp.Image = global::ElrahmaForms.Properties.Resources.emp;
-            this.picboxemp.Location = new System.Drawing.Point(100, 241);
+            this.picboxemp.Location = new System.Drawing.Point(67, 241);
             this.picboxemp.Name = "picboxemp";
-            this.picboxemp.Size = new System.Drawing.Size(237, 201);
+            this.picboxemp.Size = new System.Drawing.Size(340, 252);
             this.picboxemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxemp.TabIndex = 25;
             this.picboxemp.TabStop = false;
@@ -465,7 +458,7 @@
             // 
             // BtnImgSelect
             // 
-            this.BtnImgSelect.Location = new System.Drawing.Point(100, 449);
+            this.BtnImgSelect.Location = new System.Drawing.Point(132, 499);
             this.BtnImgSelect.Name = "BtnImgSelect";
             this.BtnImgSelect.Size = new System.Drawing.Size(237, 34);
             this.BtnImgSelect.TabIndex = 34;

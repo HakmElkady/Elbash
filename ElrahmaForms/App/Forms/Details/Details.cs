@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace ElrahmaForms.App.Forms
 {
@@ -150,6 +151,10 @@ namespace ElrahmaForms.App.Forms
                 {
 
                     xclsemp.XclsDb.Excute(SqlCommand1, par);
+                    xclsemp.Get();
+                    CbxSearch.DataSource = xclsemp.Dt_Get;
+                    CbxSearch.ValueMember = "EmpId";
+                    CbxSearch.DisplayMember = "EmpName";
 
                 }
             }
@@ -189,11 +194,11 @@ namespace ElrahmaForms.App.Forms
             txtQualification.Text= xdv[0]["Qualification"].ToString();
 
             ///////////  image
-          
-            byte[] img =  xdv[0][16] as byte[];
+
+            byte[] img = xdv[0][16] as byte[];
             MemoryStream ms = new MemoryStream(img);
             picboxemp.Image = Image.FromStream(ms);
-            
+
             ///////// Gender Rdo
             if (xdv[0]["Gender"].ToString().Trim()== "ذكر")
                 RdoMale.Checked= true;
@@ -209,9 +214,7 @@ namespace ElrahmaForms.App.Forms
             else
             { 
                 MessageBox.Show("Note=> \n هذا الموظف غير مدرج في أي قسم" + "\n"+ "\tبرجاء التعديل");
-                //rdoadmins.Checked = false;
-                //rdodoctors.Checked = false;
-                //rdonurse.Checked = false;
+                
             }
 
 
@@ -222,6 +225,71 @@ namespace ElrahmaForms.App.Forms
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
+
+
+            MessageBox.Show("؟هل أنت متأكد من تعديل البيانات", "تعديل", MessageBoxButtons.OKCancel);
+
+            if (DialogResult == DialogResult.Cancel)
+                return;
+
+
+
+            if (!CheckData())
+                return;
+
+            int Dept = Department();
+            string Type = Gender();
+            byte[] pic = Imge();
+
+
+            string SqlCommand = "update Employees set" +
+             " IsActive = @IsActive , EmpName = @EmpName , Address = @Address ," +
+               "Phone = @Phone , BirthDay = @BirthDay , HourPrice = @HourPrice ," +
+               "CardID =@CardID , Qualification = @Qualification , Hiring_Date = @Hiring_Date," +
+               "Gender = @Gender , EmpImage = @EmpImage , DeptNo = @DeptNo where empid = @empid;";
+
+            SqlParameter[] par = new SqlParameter[13];
+
+            par[0] = new SqlParameter("IsActive", MySqlDbType.Bit) { Value = checkBoxActive.Checked };
+            par[1] = new SqlParameter("EmpName", MySqlDbType.VarChar) { Value = txtname.Text.ToString() };
+            par[2] = new SqlParameter("Address", MySqlDbType.VarChar) { Value = txtaddress.Text.ToString() };
+            par[3] = new SqlParameter("Phone", MySqlDbType.VarChar) { Value = txtphone.Text.ToString() };
+            par[4] = new SqlParameter("BirthDay", MySqlDbType.Date) { Value = dtpBirthday.Value.ToString("yyyy-MM-dd") };
+            par[5] = new SqlParameter("HourPrice", MySqlDbType.Decimal) { Value = Convert.ToDecimal(txthour.Text) };
+            par[6] = new SqlParameter("CardID", MySqlDbType.VarChar) { Value = txtcardid.Text.ToString() };
+            par[7] = new SqlParameter("Qualification", MySqlDbType.VarChar) { Value = txtQualification.Text.ToString() };
+            par[8] = new SqlParameter("Hiring_Date", MySqlDbType.Date) { Value = dtpHiredate.Value.ToString("yyyy-MM-dd") };
+            par[9] = new SqlParameter("Gender", MySqlDbType.VarChar) { Value = Type };
+            par[10] = new SqlParameter("EmpImage", MySqlDbType.Byte) { Value = pic };
+            par[11] = new SqlParameter("DeptNo", MySqlDbType.Int32) { Value = Dept };
+            par[12] = new SqlParameter("empid", MySqlDbType.Int32) { Value = Convert.ToInt32(txtnum.Text) };
+
+
+
+
+
+            try
+            {
+                if (xclsemp.XclsDb.Check())
+                {
+
+                    xclsemp.XclsDb.Excute(SqlCommand, par);
+                    xclsemp.Get();
+                    CbxSearch.DataSource = xclsemp.Dt_Get;
+                    CbxSearch.ValueMember = "EmpId";
+                    CbxSearch.DisplayMember = "EmpName";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+
+            }
+
+
+            MessageBox.Show("تم تعديل بيانات الموظف بنجاح");
+
 
         }
 
