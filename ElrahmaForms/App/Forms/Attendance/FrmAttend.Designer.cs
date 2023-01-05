@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblheader = new System.Windows.Forms.Label();
             this.dgvattend = new System.Windows.Forms.DataGridView();
             this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,16 +43,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvattend)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblheader
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(575, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "الحضور و الأنصراف";
+            this.lblheader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblheader.AutoSize = true;
+            this.lblheader.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblheader.Location = new System.Drawing.Point(575, 50);
+            this.lblheader.Name = "lblheader";
+            this.lblheader.Size = new System.Drawing.Size(255, 40);
+            this.lblheader.TabIndex = 0;
+            this.lblheader.Text = "الحضور و الأنصراف";
             // 
             // dgvattend
             // 
@@ -131,6 +131,7 @@
             // 
             // txtcheckin
             // 
+            this.txtcheckin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtcheckin.Location = new System.Drawing.Point(1106, 698);
             this.txtcheckin.Name = "txtcheckin";
             this.txtcheckin.Size = new System.Drawing.Size(112, 24);
@@ -142,6 +143,7 @@
             // 
             // btncheckin
             // 
+            this.btncheckin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btncheckin.Location = new System.Drawing.Point(1256, 695);
             this.btncheckin.Name = "btncheckin";
             this.btncheckin.Size = new System.Drawing.Size(112, 28);
@@ -165,7 +167,7 @@
             this.Controls.Add(this.btncheckin);
             this.Controls.Add(this.txtcheckin);
             this.Controls.Add(this.dgvattend);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblheader);
             this.Name = "FrmAttend";
             this.Text = "الحضور و الأنصراف";
             this.Load += new System.EventHandler(this.FrmAttend_Load);
@@ -177,7 +179,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblheader;
         private System.Windows.Forms.DataGridView dgvattend;
         private System.Windows.Forms.TextBox txtcheckin;
         private System.Windows.Forms.Button btncheckin;

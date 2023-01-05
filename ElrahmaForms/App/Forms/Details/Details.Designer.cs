@@ -458,6 +458,7 @@
             // 
             // BtnImgSelect
             // 
+            this.BtnImgSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnImgSelect.Location = new System.Drawing.Point(132, 499);
             this.BtnImgSelect.Name = "BtnImgSelect";
             this.BtnImgSelect.Size = new System.Drawing.Size(237, 34);

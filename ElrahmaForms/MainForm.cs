@@ -25,10 +25,11 @@ namespace ElrahmaForms
         {
             InitializeComponent();
             random = new Random();
-            //btnCloseChildForm.Visible = false;
-            //this.Text = string.Empty;
-            //this.ControlBox = false;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            btnCloseChildForm.Visible = false;
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
 
@@ -64,7 +65,7 @@ namespace ElrahmaForms
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    //btnCloseChildForm.Visible = true;
+                    btnCloseChildForm.Visible = true;
                 }
             }
         }
@@ -111,7 +112,7 @@ namespace ElrahmaForms
             panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
             panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
-            //  btnCloseChildForm.Visible = false;
+            btnCloseChildForm.Visible = false;
         }
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -182,6 +183,38 @@ namespace ElrahmaForms
         private void button6_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+        }
+
+        private void btnCloseChildForm_Click_1(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            Reset();
+        }
+
+        private void panelTitleBar_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnmin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
         }
     }
 }

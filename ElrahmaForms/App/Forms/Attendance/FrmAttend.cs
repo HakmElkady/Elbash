@@ -1,4 +1,5 @@
-﻿using MySqlX.XDevAPI.Relational;
+﻿using ElrahmaForms.App.Classes;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +18,34 @@ namespace ElrahmaForms.App.Forms
         public FrmAttend()
         {
             InitializeComponent();
+           
         }
 
         private void FrmAttend_Load(object sender, EventArgs e)
         {
             xClsattend.Get();
             dgvattend.DataSource = xClsattend.Dt_Get;
-           
+            LoadTheme();
+
         }
+
+      
+            private void LoadTheme()
+            {
+                foreach (Control btns in this.Controls)
+                {
+                    if (btns.GetType() == typeof(Button))
+                    {
+                        Button btn = (Button)btns;
+                        btn.BackColor = ThemeColor.PrimaryColor;
+                        btn.ForeColor = Color.White;
+                        btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                    }
+                }
+                lblheader.ForeColor = ThemeColor.PrimaryColor;
+            }
+        
+
 
      
 
