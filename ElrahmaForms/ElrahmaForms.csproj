@@ -68,11 +68,18 @@
   <ItemGroup>
     <Compile Include="App\Classes\ClsDB.cs" />
     <Compile Include="App\Forms\Attendance\Clsattend.cs" />
+    <Compile Include="App\Forms\Attendance\ClsAttendReport.cs" />
     <Compile Include="App\Forms\Attendance\FrmAttend.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="App\Forms\Attendance\FrmAttend.Designer.cs">
       <DependentUpon>FrmAttend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Forms\Attendance\FrmAttendReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Forms\Attendance\FrmAttendReport.Designer.cs">
+      <DependentUpon>FrmAttendReport.cs</DependentUpon>
     </Compile>
     <Compile Include="App\Forms\Details\ClsEmpDetails.cs" />
     <Compile Include="App\Classes\ThemeColor.cs" />
@@ -95,6 +102,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="App\Forms\Attendance\FrmAttend.resx">
       <DependentUpon>FrmAttend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Forms\Attendance\FrmAttendReport.resx">
+      <DependentUpon>FrmAttendReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Forms\Details\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>

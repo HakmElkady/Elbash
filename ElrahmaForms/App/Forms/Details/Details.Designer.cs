@@ -40,14 +40,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtcardid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtEndDate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnShowEmp = new System.Windows.Forms.Button();
             this.CbxSearch = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblheader = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtQualification = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
@@ -67,6 +65,8 @@
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.BtnImgSelect = new System.Windows.Forms.Button();
             this.btncancel = new System.Windows.Forms.Button();
+            this.txtEndDate = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picboxemp)).BeginInit();
             this.groupBoxgender.SuspendLayout();
             this.groupBoxjobs.SuspendLayout();
@@ -188,15 +188,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "رقم البطاقة";
             // 
-            // txtEndDate
-            // 
-            this.txtEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEndDate.Location = new System.Drawing.Point(977, 597);
-            this.txtEndDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.txtEndDate.Name = "txtEndDate";
-            this.txtEndDate.Size = new System.Drawing.Size(278, 24);
-            this.txtEndDate.TabIndex = 13;
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -258,16 +249,6 @@
             this.lblheader.Size = new System.Drawing.Size(264, 40);
             this.lblheader.TabIndex = 19;
             this.lblheader.Text = "بيانات الموظفين";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1309, 600);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 17);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "تاريخ التصفية";
             // 
             // txtQualification
             // 
@@ -477,6 +458,25 @@
             this.btncancel.UseVisualStyleBackColor = true;
             this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
+            // txtEndDate
+            // 
+            this.txtEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndDate.Location = new System.Drawing.Point(977, 597);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.Size = new System.Drawing.Size(278, 24);
+            this.txtEndDate.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1309, 600);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 17);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "تاريخ التصفية";
+            // 
             // Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -545,14 +545,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtcardid;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnShowEmp;
         private System.Windows.Forms.ComboBox CbxSearch;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblheader;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtQualification;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBoxActive;
@@ -572,5 +570,7 @@
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Button BtnImgSelect;
         private System.Windows.Forms.Button btncancel;
+        private System.Windows.Forms.TextBox txtEndDate;
+        private System.Windows.Forms.Label label11;
     }
 }

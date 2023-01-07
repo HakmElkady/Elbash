@@ -16,6 +16,8 @@ namespace ElrahmaForms.App.Forms
         public ClsDB XclsDb = new ClsDB();
 
 
+
+
         public void Get()
         {                                                                                                                                                       ///
             string SqlCommand = "select EmpName,checkin,checkout,ID,e.empid from checkinout c inner join employees e\r\non e.empid=c.empid\r\nwhere checkout is null and IsActive = 'true' ";
@@ -26,12 +28,39 @@ namespace ElrahmaForms.App.Forms
 
         }
 
+        private bool Get4Check(int EmpID)
+        {                                                                                                                                                       ///
+            string SqlCommand = $"select IsActive from Employees\r\nwhere EmpId = {EmpID}";
+            Dt_Get = new DataTable();
+            XclsDb.Select(SqlCommand, null, Dt_Get);   
+
+           string str = Dt_Get.Rows[0][0].ToString().ToLower();
+
+            if (str == "false")
+                return false;
+            else
+                return true;
+
+
+        }
+
+
         public void CheckIn(int EmpID)
         {
 
-            
-            string SqlCommand = $"insert into checkinout (checkin,empid) values ('{DateTime.Now}',{EmpID})";
-            XclsDb.Excute(SqlCommand, null);
+            if (Get4Check(EmpID))
+            {
+
+
+                Get();
+                string SqlCommand = $"insert into checkinout (checkin,empid) values ('{DateTime.Now}',{EmpID}) ";
+                XclsDb.Excute(SqlCommand, null);
+            }
+            else
+            {
+                MessageBox.Show("برجاء تفعيل الموظف لتسجيل الدخول");
+                return;
+            }
 
 
         }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblheader = new System.Windows.Forms.Label();
             this.dgvattend = new System.Windows.Forms.DataGridView();
             this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,19 +39,9 @@
             this.txtcheckin = new System.Windows.Forms.TextBox();
             this.btncheckin = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnreport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvattend)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblheader
-            // 
-            this.lblheader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblheader.AutoSize = true;
-            this.lblheader.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblheader.Location = new System.Drawing.Point(575, 50);
-            this.lblheader.Name = "lblheader";
-            this.lblheader.Size = new System.Drawing.Size(255, 40);
-            this.lblheader.TabIndex = 0;
-            this.lblheader.Text = "الحضور و الأنصراف";
             // 
             // dgvattend
             // 
@@ -67,12 +56,12 @@
             this.ID,
             this.empid});
             this.dgvattend.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvattend.Location = new System.Drawing.Point(272, 166);
+            this.dgvattend.Location = new System.Drawing.Point(269, 100);
             this.dgvattend.Name = "dgvattend";
             this.dgvattend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvattend.RowHeadersWidth = 51;
             this.dgvattend.RowTemplate.Height = 26;
-            this.dgvattend.Size = new System.Drawing.Size(1096, 492);
+            this.dgvattend.Size = new System.Drawing.Size(1097, 505);
             this.dgvattend.TabIndex = 3;
             // 
             // EmpName
@@ -132,7 +121,7 @@
             // txtcheckin
             // 
             this.txtcheckin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtcheckin.Location = new System.Drawing.Point(1106, 698);
+            this.txtcheckin.Location = new System.Drawing.Point(1137, 67);
             this.txtcheckin.Name = "txtcheckin";
             this.txtcheckin.Size = new System.Drawing.Size(112, 24);
             this.txtcheckin.TabIndex = 4;
@@ -144,9 +133,9 @@
             // btncheckin
             // 
             this.btncheckin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncheckin.Location = new System.Drawing.Point(1256, 695);
+            this.btncheckin.Location = new System.Drawing.Point(1254, 61);
             this.btncheckin.Name = "btncheckin";
-            this.btncheckin.Size = new System.Drawing.Size(112, 28);
+            this.btncheckin.Size = new System.Drawing.Size(112, 33);
             this.btncheckin.TabIndex = 5;
             this.btncheckin.Text = "تسجيل";
             this.btncheckin.UseVisualStyleBackColor = true;
@@ -155,19 +144,31 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1000;
+            this.timer.Interval = 5000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // btnreport
+            // 
+            this.btnreport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnreport.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreport.Location = new System.Drawing.Point(1254, 713);
+            this.btnreport.Name = "btnreport";
+            this.btnreport.Size = new System.Drawing.Size(112, 38);
+            this.btnreport.TabIndex = 6;
+            this.btnreport.Text = "تقرير";
+            this.btnreport.UseVisualStyleBackColor = true;
+            this.btnreport.Click += new System.EventHandler(this.btnreport_Click_1);
             // 
             // FrmAttend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1448, 766);
+            this.ClientSize = new System.Drawing.Size(1446, 810);
+            this.Controls.Add(this.btnreport);
             this.Controls.Add(this.btncheckin);
             this.Controls.Add(this.txtcheckin);
             this.Controls.Add(this.dgvattend);
-            this.Controls.Add(this.lblheader);
             this.Name = "FrmAttend";
             this.Text = "الحضور و الأنصراف";
             this.Load += new System.EventHandler(this.FrmAttend_Load);
@@ -178,8 +179,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblheader;
         private System.Windows.Forms.DataGridView dgvattend;
         private System.Windows.Forms.TextBox txtcheckin;
         private System.Windows.Forms.Button btncheckin;
@@ -190,5 +189,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hourcount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn empid;
+        private System.Windows.Forms.Button btnreport;
     }
 }

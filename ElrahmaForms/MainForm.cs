@@ -15,6 +15,7 @@ namespace ElrahmaForms
 {
     public partial class MainForm : Form
     {
+        public static MainForm instance;
 
         //Fields
         private Button currentButton;
@@ -25,6 +26,7 @@ namespace ElrahmaForms
         {
             InitializeComponent();
             random = new Random();
+            MainForm.instance = this;
 
             btnCloseChildForm.Visible = false;
             this.Text = string.Empty;
@@ -82,7 +84,7 @@ namespace ElrahmaForms
                 }
             }
         }
-        private void OpenChildForm(Form childForm, object btnSender)
+        public  void OpenChildForm(Form childForm, object btnSender , string Title)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -95,10 +97,10 @@ namespace ElrahmaForms
             this.panelDesktopPane.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitle.Text = childForm.Text;
+            lblTitle.Text = Title;
         }
+        
 
-       
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -142,7 +144,7 @@ namespace ElrahmaForms
 
         private void btnEmps_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Details(), sender);
+            OpenChildForm(new Details(), sender , "بيانات الموظفين");
         }
 
         private void btnclose_Click_1(object sender, EventArgs e)
@@ -152,7 +154,7 @@ namespace ElrahmaForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmAttend(), sender);
+            OpenChildForm(new FrmAttend(), sender , "الحضور والأنصراف" );
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -216,5 +218,7 @@ namespace ElrahmaForms
             this.WindowState = FormWindowState.Minimized;
 
         }
+
+       
     }
 }

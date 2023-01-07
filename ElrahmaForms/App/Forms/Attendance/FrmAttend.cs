@@ -1,6 +1,8 @@
 ﻿using ElrahmaForms.App.Classes;
+using ElrahmaForms.App.Forms;
 using MySqlX.XDevAPI.Relational;
 using System;
+using ElrahmaForms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +29,7 @@ namespace ElrahmaForms.App.Forms
             dgvattend.DataSource = xClsattend.Dt_Get;
             LoadTheme();
 
+
         }
 
       
@@ -42,7 +45,7 @@ namespace ElrahmaForms.App.Forms
                         btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                     }
                 }
-                lblheader.ForeColor = ThemeColor.PrimaryColor;
+                //lblheader.ForeColor = ThemeColor.PrimaryColor;
             }
         
 
@@ -51,7 +54,9 @@ namespace ElrahmaForms.App.Forms
 
         private void txtcheckin_Enter(object sender, EventArgs e)
         {
+
             txtcheckin.Text = "";
+
         }
 
         private void btncheckin_Click(object sender, EventArgs e)
@@ -152,6 +157,21 @@ namespace ElrahmaForms.App.Forms
 
         }
 
-       
+        private void btnreport_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void btnreport_Click_1(object sender, EventArgs e)
+        {
+            MainForm.instance.OpenChildForm(new FrmAttendReport(), sender , "التقارير");
+
+
+
+        }
+
+      
+
     }
 }

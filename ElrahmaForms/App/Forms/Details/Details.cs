@@ -122,7 +122,7 @@ namespace ElrahmaForms.App.Forms
                 "HourPrice,CardID,Qualification,Hiring_Date,Gender,EmpImage,DeptNo)" +
                 "values" +
                 "(@IsActive,@EmpName,@Address,@Phone,@BirthDay," +
-                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender,@EmpImage,@DeptNo)";
+                "@HourPrice,@CardID,@Qualification,@Hiring_Date,@Gender,@EmpImage,@Depto)";
             SqlParameter[] par = new SqlParameter[12];
 
             par[0] = new SqlParameter("IsActive", MySqlDbType.Bit) { Value = checkBoxActive.Checked };
@@ -177,7 +177,7 @@ namespace ElrahmaForms.App.Forms
             MessageBox.Show(" تم حفظ بيانات الموظف الجديد");
 
         }
-
+        
         private void BtnShowEmp_Click(object sender, EventArgs e)
         {
             DataView xdv = new DataView(xclsemp.Dt_Get);
@@ -192,6 +192,14 @@ namespace ElrahmaForms.App.Forms
             dtpHiredate.Value = Convert.ToDateTime(xdv[0]["Hiring_Date"]);
             txtEndDate.Text = xdv[0]["End_Date"].ToString();
             txtQualification.Text= xdv[0]["Qualification"].ToString();
+
+
+            ////////////  IsActive
+            ///
+             
+            checkBoxActive.Checked = (bool)(xdv[0]["IsActive"]);
+
+
 
             ///////////  image
 
@@ -227,11 +235,10 @@ namespace ElrahmaForms.App.Forms
         {
 
 
-            MessageBox.Show("؟هل أنت متأكد من تعديل البيانات", "تعديل", MessageBoxButtons.OKCancel);
+           DialogResult dialogResult =  MessageBox.Show("؟هل أنت متأكد من تعديل البيانات", "تعديل", MessageBoxButtons.OKCancel);
 
-            if (DialogResult == DialogResult.Cancel)
-                return;
-
+            if (dialogResult == DialogResult.OK)
+            {
 
 
             if (!CheckData())
@@ -246,9 +253,9 @@ namespace ElrahmaForms.App.Forms
              " IsActive = @IsActive , EmpName = @EmpName , Address = @Address ," +
                "Phone = @Phone , BirthDay = @BirthDay , HourPrice = @HourPrice ," +
                "CardID =@CardID , Qualification = @Qualification , Hiring_Date = @Hiring_Date," +
-               "Gender = @Gender , EmpImage = @EmpImage , DeptNo = @DeptNo where empid = @empid;";
+               "Gender = @Gender , EmpImage = @EmpImage , DeptNo = @DeptNo , End_Date = @End_Date where empid = @empid;";
 
-            SqlParameter[] par = new SqlParameter[13];
+            SqlParameter[] par = new SqlParameter[14];
 
             par[0] = new SqlParameter("IsActive", MySqlDbType.Bit) { Value = checkBoxActive.Checked };
             par[1] = new SqlParameter("EmpName", MySqlDbType.VarChar) { Value = txtname.Text.ToString() };
@@ -263,13 +270,14 @@ namespace ElrahmaForms.App.Forms
             par[10] = new SqlParameter("EmpImage", MySqlDbType.Byte) { Value = pic };
             par[11] = new SqlParameter("DeptNo", MySqlDbType.Int32) { Value = Dept };
             par[12] = new SqlParameter("empid", MySqlDbType.Int32) { Value = Convert.ToInt32(txtnum.Text) };
+            par[13] = new SqlParameter("End_Date", MySqlDbType.VarChar) { Value = txtEndDate.Text.ToString() };
 
 
 
 
 
-            try
-            {
+                try
+                {
                 if (xclsemp.XclsDb.Check())
                 {
 
@@ -288,8 +296,10 @@ namespace ElrahmaForms.App.Forms
             }
 
 
-            MessageBox.Show("تم تعديل بيانات الموظف بنجاح");
-
+                MessageBox.Show("تم تعديل بيانات الموظف بنجاح");
+            }
+            else
+                return;
 
         }
 
