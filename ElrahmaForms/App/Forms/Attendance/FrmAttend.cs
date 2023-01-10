@@ -171,7 +171,13 @@ namespace ElrahmaForms.App.Forms
 
         }
 
-      
+     
 
+        private void btnempreport_Click(object sender, EventArgs e)
+        {
+            MainForm.instance.OpenChildForm(new FrmAttendReport(), sender, "التقارير");
+        }
+
+     
     }
 }

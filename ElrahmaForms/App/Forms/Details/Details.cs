@@ -25,7 +25,6 @@ namespace ElrahmaForms.App.Forms
         {
 
             InitializeComponent();
-            LoadTheme();
             BtnSave.Visible = false;
             btncancel.Visible = false;
 
@@ -203,7 +202,7 @@ namespace ElrahmaForms.App.Forms
 
             ///////////  image
 
-            byte[] img = xdv[0][16] as byte[];
+            byte[] img = xdv[0]["EmpImage"] as byte[];
             MemoryStream ms = new MemoryStream(img);
             picboxemp.Image = Image.FromStream(ms);
 
@@ -445,5 +444,7 @@ namespace ElrahmaForms.App.Forms
             txtEndDate.Enabled = true;
 
         }
+
+    
     }
 }

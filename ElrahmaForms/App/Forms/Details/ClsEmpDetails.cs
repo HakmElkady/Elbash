@@ -23,7 +23,6 @@ namespace ElrahmaForms.App.Forms
             XclsDb.Select(SqlCommand,null,Dt_Get);
          
 
-
         }
 
 

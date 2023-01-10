@@ -39,7 +39,8 @@
             this.txtcheckin = new System.Windows.Forms.TextBox();
             this.btncheckin = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.btnreport = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnempreport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvattend)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,17 +148,28 @@
             this.timer.Interval = 5000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // btnreport
+            // button2
             // 
-            this.btnreport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnreport.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreport.Location = new System.Drawing.Point(1254, 713);
-            this.btnreport.Name = "btnreport";
-            this.btnreport.Size = new System.Drawing.Size(112, 38);
-            this.btnreport.TabIndex = 6;
-            this.btnreport.Text = "تقرير";
-            this.btnreport.UseVisualStyleBackColor = true;
-            this.btnreport.Click += new System.EventHandler(this.btnreport_Click_1);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(1214, 669);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 47);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "تقرير الأطباء";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnempreport
+            // 
+            this.btnempreport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnempreport.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnempreport.Location = new System.Drawing.Point(1037, 669);
+            this.btnempreport.Name = "btnempreport";
+            this.btnempreport.Size = new System.Drawing.Size(152, 47);
+            this.btnempreport.TabIndex = 31;
+            this.btnempreport.Text = "تقرير الموظفين";
+            this.btnempreport.UseVisualStyleBackColor = true;
+            this.btnempreport.Click += new System.EventHandler(this.btnempreport_Click);
             // 
             // FrmAttend
             // 
@@ -165,7 +177,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1446, 810);
-            this.Controls.Add(this.btnreport);
+            this.Controls.Add(this.btnempreport);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btncheckin);
             this.Controls.Add(this.txtcheckin);
             this.Controls.Add(this.dgvattend);
@@ -189,6 +202,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hourcount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn empid;
-        private System.Windows.Forms.Button btnreport;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnempreport;
     }
 }
