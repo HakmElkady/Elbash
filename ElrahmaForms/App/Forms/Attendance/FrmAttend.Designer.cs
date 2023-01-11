@@ -41,6 +41,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.btnempreport = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvattend)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,7 +153,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1214, 669);
+            this.button2.Location = new System.Drawing.Point(1041, 667);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 47);
             this.button2.TabIndex = 30;
@@ -163,7 +164,7 @@
             // 
             this.btnempreport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnempreport.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnempreport.Location = new System.Drawing.Point(1037, 669);
+            this.btnempreport.Location = new System.Drawing.Point(864, 667);
             this.btnempreport.Name = "btnempreport";
             this.btnempreport.Size = new System.Drawing.Size(152, 47);
             this.btnempreport.TabIndex = 31;
@@ -171,12 +172,25 @@
             this.btnempreport.UseVisualStyleBackColor = true;
             this.btnempreport.Click += new System.EventHandler(this.btnempreport_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1214, 667);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 47);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "مراجعة الحضور";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmAttend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1446, 810);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnempreport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btncheckin);
@@ -204,5 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn empid;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnempreport;
+        private System.Windows.Forms.Button button1;
     }
 }

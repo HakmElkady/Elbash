@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ElrahmaForms.App.Forms.Attendance;
 
 namespace ElrahmaForms.App.Forms
 {
@@ -178,6 +179,12 @@ namespace ElrahmaForms.App.Forms
             MainForm.instance.OpenChildForm(new FrmAttendReport(), sender, "التقارير");
         }
 
-     
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmEmpDetail frm = new FrmEmpDetail();
+            frm.Text = "تقرير للموظف";
+            frm.BackColor = ThemeColor.PrimaryColor;
+            frm.ShowDialog();
+        }
     }
 }

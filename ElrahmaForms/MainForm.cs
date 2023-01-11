@@ -62,7 +62,7 @@ namespace ElrahmaForms
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Tahoma", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.Font = new System.Drawing.Font("Tahoma", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
@@ -169,7 +169,7 @@ namespace ElrahmaForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.Left=(panelDesktopPane.Size.Width/2)-(pictureBox1.Size.Width/2);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -219,6 +219,9 @@ namespace ElrahmaForms
 
         }
 
-       
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

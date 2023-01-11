@@ -42,11 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btngo = new System.Windows.Forms.Button();
             this.DategroupBox = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxMonth = new System.Windows.Forms.ComboBox();
             this.cbxEmpName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblcurrentMounth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvattendperuser)).BeginInit();
             this.DategroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,12 +65,12 @@
             this.totalhours,
             this.HourPrice,
             this.total});
-            this.dgvattendperuser.Location = new System.Drawing.Point(188, 183);
+            this.dgvattendperuser.Location = new System.Drawing.Point(268, 183);
             this.dgvattendperuser.Name = "dgvattendperuser";
             this.dgvattendperuser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvattendperuser.RowHeadersWidth = 51;
             this.dgvattendperuser.RowTemplate.Height = 26;
-            this.dgvattendperuser.Size = new System.Drawing.Size(1328, 617);
+            this.dgvattendperuser.Size = new System.Drawing.Size(1248, 617);
             this.dgvattendperuser.TabIndex = 0;
             this.dgvattendperuser.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvattendperuser_CellBeginEdit);
             this.dgvattendperuser.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvattendperuser_CellEndEdit);
@@ -183,7 +182,7 @@
             // 
             // DategroupBox
             // 
-            this.DategroupBox.Controls.Add(this.comboBox1);
+            this.DategroupBox.Controls.Add(this.cbxMonth);
             this.DategroupBox.Controls.Add(this.label2);
             this.DategroupBox.Location = new System.Drawing.Point(838, 95);
             this.DategroupBox.Name = "DategroupBox";
@@ -193,15 +192,15 @@
             this.DategroupBox.TabStop = false;
             this.DategroupBox.Text = "الفترة ";
             // 
-            // comboBox1
+            // cbxMonth
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(32, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(234, 24);
-            this.comboBox1.TabIndex = 9;
+            this.cbxMonth.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxMonth.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxMonth.FormattingEnabled = true;
+            this.cbxMonth.Location = new System.Drawing.Point(25, 33);
+            this.cbxMonth.Name = "cbxMonth";
+            this.cbxMonth.Size = new System.Drawing.Size(249, 24);
+            this.cbxMonth.TabIndex = 8;
             // 
             // cbxEmpName
             // 
@@ -236,23 +235,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "أختر الموظف";
             // 
-            // lblcurrentMounth
-            // 
-            this.lblcurrentMounth.AutoSize = true;
-            this.lblcurrentMounth.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcurrentMounth.Location = new System.Drawing.Point(184, 56);
-            this.lblcurrentMounth.Name = "lblcurrentMounth";
-            this.lblcurrentMounth.Size = new System.Drawing.Size(54, 21);
-            this.lblcurrentMounth.TabIndex = 16;
-            this.lblcurrentMounth.Text = "label4";
-            // 
             // FrmAttendReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1558, 766);
-            this.Controls.Add(this.lblcurrentMounth);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DategroupBox);
             this.Controls.Add(this.dgvattendperuser);
@@ -265,7 +253,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,7 +265,6 @@
         private System.Windows.Forms.ComboBox cbxEmpName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblcurrentMounth;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmpId;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptname;
@@ -289,6 +275,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalhours;
         private System.Windows.Forms.DataGridViewTextBoxColumn HourPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxMonth;
     }
 }

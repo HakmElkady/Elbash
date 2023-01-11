@@ -17,20 +17,20 @@ namespace ElrahmaForms.App.Forms
         public DataTable Dt_Get;
         public ClsDB XclsDb = new ClsDB();
 
-        public void GetCurrentMonth()
-        {
-            string SqlCommand = $"select * from Current_month where id = (select max(id) from current_month)";
-            Dt_Get = new DataTable();
-            XclsDb.Select(SqlCommand, null, Dt_Get);
+        //public void GetCurrentMonth()
+        //{
+        //    string SqlCommand = $"select * from Current_month where id = (select max(id) from current_month)";
+        //    Dt_Get = new DataTable();
+        //    XclsDb.Select(SqlCommand, null, Dt_Get);
 
 
-        }
+        //}
 
 
-        public void Get()
+        public void Get(string year="1-2023")
         {
             //TimeSpan timeSpan = DateTime.Now.AddMonths(1) - DateTime.Now;
-            string SqlCommand = "select e.empid,empname,deptname,bouns,salary_discount,\r\ninternet,advance_salary,totalhours,hourprice,TotalSalary\r\nfrom Employees e ,Emp_Month_TotalSal em,Departments d\r\nwhere\r\ne.EmpId =em.EmpID and e.DeptNo = d.DeptNo and \r\nem.Month_Year ='1-2023'";
+            string SqlCommand = $"select e.empid,empname,deptname,bouns,salary_discount,\r\ninternet,advance_salary,totalhours,hourprice,TotalSalary\r\nfrom Employees e ,Emp_Month_TotalSal em,Departments d\r\nwhere\r\ne.EmpId =em.EmpID and e.DeptNo = d.DeptNo and \r\nem.Month_Year ='{year}'";
             Dt_Get = new DataTable();
             XclsDb.Select(SqlCommand, null, Dt_Get);
 
@@ -38,15 +38,27 @@ namespace ElrahmaForms.App.Forms
         }
 
 
-        public void GetFilter(int Empid , DateTime From , DateTime To)
-        {
 
-            string SqlCommand = $"select e.EmpId,EmpName,c.ID,c.checkin,\r\nc.checkout,logged_Mins,HourPrice\r\nfrom \r\nEmployees e, Checkinout c\r\nwhere e.EmpId = {Empid} and checkin between '{From}' and '{To}'\r\n\r\n";
+        public void GetMonth()
+        {
+            string SqlCommand = "select * from Current_Month";
             Dt_Get = new DataTable();
-            XclsDb.Select(SqlCommand,null,Dt_Get);
+            XclsDb.Select(SqlCommand, null, Dt_Get);
 
 
         }
+
+
+
+        //public void GetFilter(int Empid , DateTime From , DateTime To)
+        //{
+
+        //    string SqlCommand = $"select e.EmpId,EmpName,c.ID,c.checkin,\r\nc.checkout,logged_Mins,HourPrice\r\nfrom \r\nEmployees e, Checkinout c\r\nwhere e.EmpId = {Empid} and checkin between '{From}' and '{To}'\r\n\r\n";
+        //    Dt_Get = new DataTable();
+        //    XclsDb.Select(SqlCommand,null,Dt_Get);
+
+
+        //}
 
 
 

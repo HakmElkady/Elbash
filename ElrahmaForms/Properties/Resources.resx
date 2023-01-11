@@ -121,29 +121,14 @@
   <data name="emp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\emp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="emp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\emp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Document2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="App_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="App_Icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\App_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Document1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="employee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\employee.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cancel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="emp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="emp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\emp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,10 +136,34 @@
   <data name="Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="employee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="App_Icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\App_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\employee.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Document2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cancel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Document1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="App_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\App_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="App_Icon3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\App_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

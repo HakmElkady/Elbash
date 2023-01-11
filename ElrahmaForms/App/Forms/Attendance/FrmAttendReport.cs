@@ -1,4 +1,5 @@
 ﻿using ElrahmaForms.App.Classes;
+using ElrahmaForms.App.Forms.Attendance;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -26,15 +27,26 @@ namespace ElrahmaForms.App.Forms
         private void FrmAttendReport_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            clsAttendReport.GetCurrentMonth();
-            DataView xdv = new DataView(clsAttendReport.Dt_Get);
-            lblcurrentMounth.Text = xdv[0]["Month"].ToString();
-            clsAttendReport.Get();
-            dgvattendperuser.AutoGenerateColumns = false;
-            dgvattendperuser.DataSource = clsAttendReport.Dt_Get;
-            cbxEmpName.DataSource = clsAttendReport.Dt_Get;
-            cbxEmpName.ValueMember = "EmpId";
-            cbxEmpName.DisplayMember = "EmpName";
+            //clsAttendReport.GetCurrentMonth();
+            //DataView xdv = new DataView(clsAttendReport.Dt_Get);
+            //lblcurrentMounth.Text = xdv[0]["Month"].ToString();
+            if (clsAttendReport.XclsDb.Check())
+            {
+                clsAttendReport.GetMonth();
+                cbxMonth.DataSource = clsAttendReport.Dt_Get;
+                cbxMonth.ValueMember = "ID";
+                cbxMonth.DisplayMember = "Month";
+
+            
+                clsAttendReport.Get();
+                dgvattendperuser.AutoGenerateColumns = false;
+                dgvattendperuser.DataSource = clsAttendReport.Dt_Get;
+                cbxEmpName.DataSource = clsAttendReport.Dt_Get;
+                cbxEmpName.ValueMember = "EmpId";
+                cbxEmpName.DisplayMember = "EmpName";
+
+            }
+
             
 
         }
@@ -133,6 +145,9 @@ namespace ElrahmaForms.App.Forms
         private void btngo_Click(object sender, EventArgs e)
         {
            
+
         }
+
+      
     }
 }

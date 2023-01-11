@@ -223,6 +223,8 @@
             // CbxSearch
             // 
             this.CbxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CbxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbxSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CbxSearch.FormattingEnabled = true;
             this.CbxSearch.Location = new System.Drawing.Point(879, 136);
             this.CbxSearch.Name = "CbxSearch";
@@ -286,8 +288,9 @@
             // picboxemp
             // 
             this.picboxemp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picboxemp.Image = global::ElrahmaForms.Properties.Resources.emp;
             this.picboxemp.Location = new System.Drawing.Point(67, 241);
+            this.picboxemp.MaximumSize = new System.Drawing.Size(340, 252);
+            this.picboxemp.MinimumSize = new System.Drawing.Size(340, 252);
             this.picboxemp.Name = "picboxemp";
             this.picboxemp.Size = new System.Drawing.Size(340, 252);
             this.picboxemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
