@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ElrahmaForms.App.Forms
 {
@@ -17,19 +18,21 @@ namespace ElrahmaForms.App.Forms
         public DataTable Dt_Get;
         public ClsDB XclsDb = new ClsDB();
 
-        //public void GetCurrentMonth()
-        //{
-        //    string SqlCommand = $"select * from Current_month where id = (select max(id) from current_month)";
-        //    Dt_Get = new DataTable();
-        //    XclsDb.Select(SqlCommand, null, Dt_Get);
-
-
-        //}
-
-
-        public void Get(string year="1-2023")
+        public string GetCurrentMonth()
         {
-            //TimeSpan timeSpan = DateTime.Now.AddMonths(1) - DateTime.Now;
+            string SqlCommand = $"select max(month) from Current_month ";
+            Dt_Get = new DataTable();
+            XclsDb.Select(SqlCommand, null, Dt_Get);
+
+            string CurrentMonth = Dt_Get.Rows[0][0].ToString();  
+            return CurrentMonth;    
+
+        }
+
+
+        public void Get(string year)
+        {
+
             string SqlCommand = $"select e.empid,empname,deptname,bouns,salary_discount,\r\ninternet,advance_salary,totalhours,hourprice,TotalSalary\r\nfrom Employees e ,Emp_Month_TotalSal em,Departments d\r\nwhere\r\ne.EmpId =em.EmpID and e.DeptNo = d.DeptNo and \r\nem.Month_Year ='{year}'";
             Dt_Get = new DataTable();
             XclsDb.Select(SqlCommand, null, Dt_Get);
@@ -39,7 +42,7 @@ namespace ElrahmaForms.App.Forms
 
 
 
-        public void GetMonth()
+        public void GetMonths()
         {
             string SqlCommand = "select * from Current_Month";
             Dt_Get = new DataTable();
@@ -69,6 +72,56 @@ namespace ElrahmaForms.App.Forms
             XclsDb.Select(SqlCommand1, null, Dt_Get);
 
         }
+
+
+
+        public void RefreshGrid(DataGridView gridView , string year)
+        {
+
+
+
+            foreach (DataGridViewRow item in gridView.Rows)
+            {
+               if(item.Index +1 <= gridView.Rows.Count)
+                { 
+                decimal TotalHoursPrice = 0;
+
+                decimal.TryParse(item.Cells[8].Value.ToString(), out decimal Hprice);
+                decimal.TryParse(item.Cells[7].Value.ToString(), out decimal Hcount);
+
+                decimal.TryParse(item.Cells[3].Value.ToString(), out decimal Bouns);
+                decimal.TryParse(item.Cells[5].Value.ToString(), out decimal net);
+
+                decimal.TryParse(item.Cells[4].Value.ToString(), out decimal Advance);
+                decimal.TryParse(item.Cells[6].Value.ToString(), out decimal Discount);
+
+
+                TotalHoursPrice = ((Hprice * Hcount) + Bouns) - (Advance + Discount + net);
+
+                item.Cells[9].Value = TotalHoursPrice.ToString("0.00");
+                string SqlCommand = $"update Emp_Month_TotalSal set TotalSalary = {TotalHoursPrice} where EmpID = {item.Cells[0].Value} and Month_Year = '{year}'";
+                XclsDb.Excute(SqlCommand, null);
+
+                }
+            }
+
+
+        }
+
+
+
+        public void InsertMonth(int month,int year)
+        {
+            string a =  month.ToString() + "-" + year.ToString();
+            string SqlCommand = $"insert into Current_Month (Month) values('{a}')";
+            Dt_Get = new DataTable();
+            XclsDb.Select(SqlCommand, null, Dt_Get);
+
+
+        }
+
+
+
 
     }
 }

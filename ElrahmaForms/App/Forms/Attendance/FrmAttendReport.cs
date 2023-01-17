@@ -27,27 +27,30 @@ namespace ElrahmaForms.App.Forms
         private void FrmAttendReport_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            //clsAttendReport.GetCurrentMonth();
-            //DataView xdv = new DataView(clsAttendReport.Dt_Get);
-            //lblcurrentMounth.Text = xdv[0]["Month"].ToString();
+       
             if (clsAttendReport.XclsDb.Check())
             {
-                clsAttendReport.GetMonth();
+                clsAttendReport.GetMonths();
                 cbxMonth.DataSource = clsAttendReport.Dt_Get;
                 cbxMonth.ValueMember = "ID";
                 cbxMonth.DisplayMember = "Month";
+                cbxMonth.SelectedIndex = cbxMonth.Items.Count - 1;
 
-            
-                clsAttendReport.Get();
+
+                clsAttendReport.Get(cbxMonth.GetItemText(cbxMonth.SelectedItem));
+
+                //clsAttendReport.Get(clsAttendReport.GetCurrentMonth());
                 dgvattendperuser.AutoGenerateColumns = false;
                 dgvattendperuser.DataSource = clsAttendReport.Dt_Get;
                 cbxEmpName.DataSource = clsAttendReport.Dt_Get;
                 cbxEmpName.ValueMember = "EmpId";
                 cbxEmpName.DisplayMember = "EmpName";
+                clsAttendReport.RefreshGrid(dgvattendperuser, cbxMonth.GetItemText(cbxMonth.SelectedItem));
+
 
             }
 
-            
+
 
         }
 
@@ -90,8 +93,8 @@ namespace ElrahmaForms.App.Forms
             decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[3].Value.ToString(), out decimal Bouns);
             decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[5].Value.ToString(), out decimal net);
         
-            decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[4].Value.ToString(), out decimal Advance);
-            decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[6].Value.ToString(), out decimal Discount);
+            decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[6].Value.ToString(), out decimal Advance);
+            decimal.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[4].Value.ToString(), out decimal Discount);
         
         
             TotalHoursPrice = ((Hprice * Hcount) + Bouns ) - (Advance + Discount + net);
@@ -102,7 +105,7 @@ namespace ElrahmaForms.App.Forms
 
 
 
-
+            
 
             /////////Editing Columns 
             ///
@@ -110,7 +113,7 @@ namespace ElrahmaForms.App.Forms
 
             int.TryParse(dgvattendperuser.Rows[dgvattendperuser.SelectedCells[0].RowIndex].Cells[0].Value.ToString(), out int ID);
             string SQLCommand = $"update Emp_Month_TotalSal set Bouns = @Bouns , Salary_Discount = @Salary_Discount , Internet = @Internet ," +
-                $"Advance_Salary = @Advance_Salary , TotalHours = @TotalHours , TotalSalary = @TotalSalary where EmpID = {ID}";
+                $"Advance_Salary = @Advance_Salary , TotalHours = @TotalHours , TotalSalary = @TotalSalary where EmpID = {ID} and Month_Year = '{cbxMonth.GetItemText(cbxMonth.SelectedItem)}'";
 
             SqlParameter[] par = new SqlParameter[6];
 
@@ -124,8 +127,9 @@ namespace ElrahmaForms.App.Forms
 
             if(clsAttendReport.XclsDb.Check())
             clsAttendReport.XclsDb.Excute(SQLCommand, par);
-            clsAttendReport.Get();
+            clsAttendReport.Get(cbxMonth.SelectedValue.ToString());
             dgvattendperuser.Refresh();
+            dgvattendperuser.Update();
 
 
 
@@ -148,6 +152,61 @@ namespace ElrahmaForms.App.Forms
 
         }
 
-      
+        private void btnBegain_Click(object sender, EventArgs e)
+        {
+
+            DialogResult = MessageBox.Show("إذا كنت متأكد من بداية الشهر الجديد .\n يرجي تسجيل خروج لكل الموظفيين الموجوديين الأن ", "Hakam",MessageBoxButtons.OKCancel);
+            if(DialogResult == DialogResult.OK)
+            { 
+            try
+            {
+                    if (txtmonth.Text == string.Empty || txtyear.Text == string.Empty)
+                    {
+                        MessageBox.Show("أدخل رقم السنة ورقم الشهر","Hakam",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                        return;
+                    }
+
+                int.TryParse(txtmonth.Text, out int mon);
+                int.TryParse(txtyear.Text, out int year);
+                clsAttendReport.InsertMonth(mon, year);
+                MessageBox.Show("تم بدأية شهر جديد.","Hakam",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ادخل الشهر والسنة بشكل صحيح !", "Hakam", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            }else
+            {
+                MessageBox.Show("تم الغاء العملية","Hakam",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
+
+
+        }
+
+        private void txtyear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void cbxMonth_SelectedValueChanged(object sender, EventArgs e)
+        {
+            clsAttendReport.Get(cbxMonth.GetItemText(cbxMonth.SelectedItem));
+            dgvattendperuser.DataSource = clsAttendReport.Dt_Get;
+            dgvattendperuser.Refresh();
+            dgvattendperuser.Update();
+
+        }
+
+
+
+        private void dgvattendperuser_Click(object sender, EventArgs e)
+        {
+            clsAttendReport.RefreshGrid(dgvattendperuser, cbxMonth.GetItemText(cbxMonth.SelectedItem));
+
+        }
     }
 }

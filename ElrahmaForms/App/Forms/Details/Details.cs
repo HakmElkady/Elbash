@@ -47,6 +47,7 @@ namespace ElrahmaForms.App.Forms
         private void Details_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            
             groupBoxgender.ForeColor = ThemeColor.SecondaryColor;
             groupBoxjobs.ForeColor = ThemeColor.SecondaryColor;
 
@@ -179,6 +180,9 @@ namespace ElrahmaForms.App.Forms
         
         private void BtnShowEmp_Click(object sender, EventArgs e)
         {
+
+            
+
             DataView xdv = new DataView(xclsemp.Dt_Get);
             xdv.RowFilter = "EmpId = " + CbxSearch.SelectedValue;
             txtnum.Text = xdv[0]["empid"].ToString();
@@ -445,6 +449,10 @@ namespace ElrahmaForms.App.Forms
 
         }
 
-    
+        private void txtcardid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

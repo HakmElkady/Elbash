@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAttend));
             this.dgvattend = new System.Windows.Forms.DataGridView();
             this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkin = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,6 +197,7 @@
             this.Controls.Add(this.btncheckin);
             this.Controls.Add(this.txtcheckin);
             this.Controls.Add(this.dgvattend);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAttend";
             this.Text = "الحضور و الأنصراف";
             this.Load += new System.EventHandler(this.FrmAttend_Load);

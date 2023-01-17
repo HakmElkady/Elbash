@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAttendReport));
             this.dgvattendperuser = new System.Windows.Forms.DataGridView();
             this.EmpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +47,23 @@
             this.cbxEmpName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBegain = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtmonth = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtyear = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvattendperuser)).BeginInit();
             this.DategroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvattendperuser
             // 
+            this.dgvattendperuser.AllowUserToAddRows = false;
+            this.dgvattendperuser.AllowUserToDeleteRows = false;
             this.dgvattendperuser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvattendperuser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmpId,
@@ -74,6 +85,7 @@
             this.dgvattendperuser.TabIndex = 0;
             this.dgvattendperuser.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvattendperuser_CellBeginEdit);
             this.dgvattendperuser.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvattendperuser_CellEndEdit);
+            this.dgvattendperuser.Click += new System.EventHandler(this.dgvattendperuser_Click);
             // 
             // EmpId
             // 
@@ -201,6 +213,7 @@
             this.cbxMonth.Name = "cbxMonth";
             this.cbxMonth.Size = new System.Drawing.Size(249, 24);
             this.cbxMonth.TabIndex = 8;
+            this.cbxMonth.SelectedValueChanged += new System.EventHandler(this.cbxMonth_SelectedValueChanged);
             // 
             // cbxEmpName
             // 
@@ -235,15 +248,89 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "أختر الموظف";
             // 
+            // btnBegain
+            // 
+            this.btnBegain.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBegain.Location = new System.Drawing.Point(427, 138);
+            this.btnBegain.Name = "btnBegain";
+            this.btnBegain.Size = new System.Drawing.Size(105, 40);
+            this.btnBegain.TabIndex = 8;
+            this.btnBegain.Text = "إبدأ شهر جديد";
+            this.btnBegain.UseVisualStyleBackColor = true;
+            this.btnBegain.Click += new System.EventHandler(this.btnBegain_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "شهر";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(71, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "السنة";
+            // 
+            // txtmonth
+            // 
+            this.txtmonth.Location = new System.Drawing.Point(14, 49);
+            this.txtmonth.MaxLength = 2;
+            this.txtmonth.Name = "txtmonth";
+            this.txtmonth.Size = new System.Drawing.Size(21, 24);
+            this.txtmonth.TabIndex = 21;
+            this.txtmonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtyear_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "-";
+            // 
+            // txtyear
+            // 
+            this.txtyear.Location = new System.Drawing.Point(60, 48);
+            this.txtyear.MaxLength = 4;
+            this.txtyear.Name = "txtyear";
+            this.txtyear.Size = new System.Drawing.Size(65, 24);
+            this.txtyear.TabIndex = 19;
+            this.txtyear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtyear_KeyPress);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtyear);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtmonth);
+            this.groupBox2.Location = new System.Drawing.Point(268, 95);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(153, 83);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "إختر الشهر";
+            // 
             // FrmAttendReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1558, 766);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnBegain);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DategroupBox);
             this.Controls.Add(this.dgvattendperuser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAttendReport";
             this.Text = "FrmAttendReport";
             this.Load += new System.EventHandler(this.FrmAttendReport_Load);
@@ -252,6 +339,8 @@
             this.DategroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +365,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HourPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.ComboBox cbxMonth;
+        private System.Windows.Forms.Button btnBegain;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtmonth;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtyear;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

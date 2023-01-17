@@ -88,7 +88,7 @@ namespace ElrahmaForms.App.Forms
                                 xClsattend.CheckOut(EmpNO, (int)row.Cells[4].Value,ds);
                                 xClsattend.Get();
                                 dgvattend.DataSource = xClsattend.Dt_Get;
-                                MessageBox.Show("مع السلامة  يا " + str[0]+ "\n"+"عدد ساعات العمل " +ds.ToString(@"hh\:mm\:ss"));
+                                MessageBox.Show("مع السلامة  يا " + str[0]+ "\n"+"عدد ساعات العمل " +ds.ToString(@"d\.hh\:mm\:ss"));
                                
                                 return;
 
@@ -134,11 +134,11 @@ namespace ElrahmaForms.App.Forms
             {
                 MessageBox.Show("ادخل رقم الموظف!!!!");
             }
-            
+
         }
 
 
-        
+
         private void timer_Tick(object sender, EventArgs e)
         {
 
@@ -146,7 +146,7 @@ namespace ElrahmaForms.App.Forms
             foreach (DataGridViewRow row in dgvattend.Rows)
             {
                 TimeSpan ds = DateTime.Now.Subtract(Convert.ToDateTime(row.Cells[2].Value));
-                row.Cells[0].Value = ds.ToString(@"hh\:mm\:ss");
+                row.Cells[0].Value = ds.ToString(@"d\.hh\:mm\:ss");
 
                 
             }
@@ -176,7 +176,24 @@ namespace ElrahmaForms.App.Forms
 
         private void btnempreport_Click(object sender, EventArgs e)
         {
+            Form frm= new Form();
+            TextBox txt = new TextBox();
+            frm.Height= txt.Height + 50;
+            frm.Width= txt.Width + 10;
+            frm.StartPosition= FormStartPosition.CenterScreen;
+            frm.Icon= this.Icon;
+            frm.Controls.Add(txt);
+            string s = txt.Text;
+            txt.PasswordChar ='*';
+           // frm.ShowDialog();
+             s = txt.Text;
+            if(s=="aaaaa")
+            {
+
+            }
             MainForm.instance.OpenChildForm(new FrmAttendReport(), sender, "التقارير");
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -139,6 +139,7 @@
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(278, 24);
             this.txtphone.TabIndex = 7;
+            this.txtphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcardid_KeyPress);
             // 
             // label4
             // 
@@ -177,6 +178,7 @@
             this.txtcardid.Name = "txtcardid";
             this.txtcardid.Size = new System.Drawing.Size(278, 24);
             this.txtcardid.TabIndex = 11;
+            this.txtcardid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcardid_KeyPress);
             // 
             // label6
             // 
@@ -288,6 +290,7 @@
             // picboxemp
             // 
             this.picboxemp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picboxemp.Image = global::ElrahmaForms.Properties.Resources.emp;
             this.picboxemp.Location = new System.Drawing.Point(67, 241);
             this.picboxemp.MaximumSize = new System.Drawing.Size(340, 252);
             this.picboxemp.MinimumSize = new System.Drawing.Size(340, 252);

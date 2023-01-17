@@ -49,12 +49,17 @@ namespace ElrahmaForms.App.Forms
         public void CheckIn(int EmpID)
         {
 
+            string Sqlcommand2 = "select max(id) from Current_month";
+            Dt_Get = new DataTable();
+            XclsDb.Select(Sqlcommand2, null, Dt_Get);
+            int MonthId = (int)Dt_Get.Rows[0][0];
+
             if (Get4Check(EmpID))
             {
 
 
                 Get();
-                string SqlCommand = $"insert into checkinout (checkin,empid) values ('{DateTime.Now}',{EmpID}) ";
+                string SqlCommand = $"insert into checkinout (checkin,empid,MonthId) values ('{DateTime.Now}',{EmpID},{MonthId}) ";
                 XclsDb.Excute(SqlCommand, null);
 
                 
@@ -98,13 +103,22 @@ namespace ElrahmaForms.App.Forms
         {
             /////convert Total Mins to Hours and update The Employee in Emp_Month_TotalSal table
             ///
+                                                                            
+            string Sqlcommand1 = $"select max(Month_Year) from Emp_Month_TotalSal where empid={EmpID}";
+            Dt_Get = new DataTable();
+            XclsDb.Select(Sqlcommand1, null, Dt_Get);
+            string str1 = Dt_Get.Rows[0][0].ToString().ToLower();
+
+
             string Sqlcommand2 = "select max(month) from Current_month";
             Dt_Get = new DataTable();
             XclsDb.Select(Sqlcommand2, null, Dt_Get);
             string str2 = Dt_Get.Rows[0][0].ToString().ToLower();
 
-            decimal hours = 0;
-            string Sqlcommand = $"select totalhours from Emp_Month_TotalSal where empid = {EmpID}";
+
+
+            decimal hours = 0;                                                               //where month= (current)month
+            string Sqlcommand = $"select totalhours from Emp_Month_TotalSal where empid = {EmpID}  and  Month_Year = '{str2}' ";
             Dt_Get.Dispose();
             Dt_Get = new DataTable();
             XclsDb.Select(Sqlcommand, null, Dt_Get);
